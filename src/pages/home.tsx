@@ -3,6 +3,7 @@ import './home.scss';
 import headerBg from '../images/header.png';
 import {Chart1} from '../components/chart-1';
 import {Chart2} from '../components/chart-2';
+import {Chart3} from '../components/chart-3';
 
 
 export const Home = () => {
@@ -18,6 +19,7 @@ export const Home = () => {
 
         </section>
         <section className="section2">
+          <Chart3/>
         </section>
         <section className="section3">1</section>
         <section className="section4">1</section>
