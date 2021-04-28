@@ -44,15 +44,15 @@ export const Chart11 = () => {
   }, []);
 
   return (
-    <div className="年龄段-图1">
+    <div className="chart11">
       <div className="chart">
         <div className="main" ref={divRef}/>
       </div>
       <div className="legend">
-        <span style={{background: colors[0]}} />刑事
-        <span style={{background: colors[1]}} />民事
-        <span style={{background: colors[2]}} />经济
-        <span style={{background: colors[3]}} />其他
+        <span style={{background: colors[0]}}/>刑事
+        <span style={{background: colors[1]}}/>民事
+        <span style={{background: colors[2]}}/>经济
+        <span style={{background: colors[3]}}/>其他
       </div>
     </div>
   );
