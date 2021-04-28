@@ -16,12 +16,14 @@ import {Chart12} from '../components/chart-12';
 import {Chart13} from '../components/chart-13';
 import {Chart14} from '../components/chart-14';
 
+console.log(headerBg);
+
 export const Home = () => {
   const year = new Date().getFullYear();
 
   return (
     <div className="home">
-      <header style={{backgroundImage: `url(${headerBg})`}}/>
+      <header style={{backgroundImage: `url(.${headerBg})`}}/>
       <main>
         <section className="section1">
           <Chart1/>

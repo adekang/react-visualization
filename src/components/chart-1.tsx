@@ -7,12 +7,40 @@ import {createEchartsOptions} from '../shared/create-echarts-options';
 
 export const Chart1 = () => {
   const divRef = useRef(null);
+  const myChart = useRef(null);
+  const data = [
+    {name: '兰州新区', bars: 18},
+    {name: '兰州新区', bars: 20},
+    {name: '兰州新区', bars: 10},
+    {name: '兰州新区', bars: 50},
+    {name: '兰州新区', bars: 35},
+    {name: '兰州新区', bars: 23},
+    {name: '兰州新区', bars: 44},
+    {name: '兰州新区', bars: 41},
+    {name: '兰州新区', bars: 17},
+  ];
+
   useEffect(() => {
-    const myChart = echarts.init(divRef.current);
-    myChart.setOption(createEchartsOptions({
+    setInterval(() => {
+      const newData = [
+        {name: '兰州新区', bars: Math.random() * 50},
+        {name: '兰州新区', bars: Math.random() * 50},
+        {name: '兰州新区', bars: Math.random() * 50},
+        {name: '兰州新区', bars: Math.random() * 50},
+        {name: '兰州新区', bars: Math.random() * 50},
+        {name: '兰州新区', bars: Math.random() * 50},
+        {name: '兰州新区', bars: Math.random() * 50},
+        {name: '兰州新区', bars: Math.random() * 50},
+        {name: '兰州新区', bars: Math.random() * 50},
+      ];
+      x(newData);
+    }, 2000);
+  }, []);
+  const x = (data) => {
+    myChart.current.setOption(createEchartsOptions({
       ...baseEchartOptions,
       xAxis: {
-        data: ['兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区'],
+        data: data.map(t => t.name),
         axisTick: {show: false},
         axisLine: {
           lineStyle: {color: '#083B70'}
@@ -40,9 +68,14 @@ export const Chart1 = () => {
       },
       series: [{
         type: 'bar',
-        data: [10, 20, 36, 41, 15, 26, 37, 18, 29]
+        data: data.map(t => t.bars)
       }]
     }));
+  };
+
+  useEffect(() => {
+    myChart.current = echarts.init(divRef.current);
+    x(data);
   }, []);
   return (
     <div className="管辖统计 bordered">
@@ -52,3 +85,5 @@ export const Chart1 = () => {
     </div>
   );
 };
+
+
